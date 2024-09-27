@@ -1,23 +1,23 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react'
-import { heroSlides } from '@/data/data'
-import './hero.css'
+import React, { useEffect } from 'react';
+import { heroSlides } from '@/data/data';
+import './hero.css';
 
-//IMPORT AOS
-import AOS from 'aos'
+// IMPORT AOS
+import AOS from 'aos';
 
-//IMPORT SWIPER
+// IMPORT SWIPER
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-//IMPORT SWIPER STYLES
+// IMPORT SWIPER STYLES
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-//IMPORT MODULES  
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
-import HeroSlide from '@/components/HeroSlide'
+// IMPORT MODULES  
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import HeroSlide from '@/components/HeroSlide';
 
 export default function Hero() {
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Hero() {
               slidesPerView={'auto'}
               speed={500}
               autoplay={{
-                delay:3000,
+                delay: 3000,
                 disableOnInteraction: false,
               }}
               pagination={{
@@ -55,9 +55,9 @@ export default function Hero() {
               className='sliderFeaturedPosts'
             >
               {
-                heroSlides.map(slide=>(
-                  <SwiperSlide>
-                    {/* include customize heroslide template */}
+                heroSlides.map((slide, index) => (
+                  <SwiperSlide key={slide.id || index}> {/* Use slide.id if available, else use index as a fallback */}
+                    {/* Include customized HeroSlide template */}
                     <HeroSlide slide={slide} />
                   </SwiperSlide>
                 ))
@@ -76,5 +76,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

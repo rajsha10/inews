@@ -51,7 +51,7 @@ export default function Post() {
       setItem(data);
     } catch (e) {
       console.error(e);
-      // setError(e.message);
+      setError(e.message);
     }
   };
 
