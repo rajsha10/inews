@@ -6,7 +6,9 @@ dbConnect();
 export async function GET(_request: Request, {params} : {params: {id: string}}) {
     try{
         const postItem = await PostItem.findById(params.id).select('-__v');
-        return Response.json(postItem);
+        return new Response(
+            JSON.stringify(postItem)
+        );
     }catch (error) {
         return new Response(
             JSON.stringify({message: 'NO item found for this ID'}),

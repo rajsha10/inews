@@ -9,9 +9,9 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-    const postItem = await request.json();
-
+    
     try{
+        const postItem = await request.json();
         const savedItem = await new PostItem({...postItem}).save();
         return new Response(JSON.stringify(savedItem), {
             headers: {
@@ -20,8 +20,7 @@ export async function POST(request: Request) {
             status: 201,
         });
     } catch(error){
-        return new Response(JSON.stringify({ message: 'SERVER ERROR' }), {
-            
+            return new Response(JSON.stringify({ message: 'SERVER ERROR'}), {     
         });
     }
 }
