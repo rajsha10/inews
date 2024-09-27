@@ -33,7 +33,7 @@ export default function Post() {
       setItems(data);
     } catch (error) {
       console.error(error);
-      // setError(error.message);
+      // setError(e.message);
     }
   };
 
@@ -51,7 +51,7 @@ export default function Post() {
       setItem(data);
     } catch (e) {
       console.error(e);
-      setError(e.message);
+      // setError(e.message);
     }
   };
 
